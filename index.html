@@ -8,8 +8,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #ff6b81;
-            --accent: #ff4757;
+            --primary: #74b9ff;
+            --accent: #0984e3;
+            --bg-light: #e3f2fd;
+            --card-border: #a0c4ff;
         }
 
         * {
@@ -46,7 +48,7 @@
         /* ----- หน้า 1: หน้าเล่นเกม ----- */
         #game-page {
             padding: 25px 20px;
-            background: linear-gradient(135deg, #fff5f5 0%, #ffe3e3 100%);
+            background: linear-gradient(135deg, #f0f7ff 0%, #d0e1fd 100%);
             height: 100%;
             display: flex;
             flex-direction: column;
@@ -69,7 +71,7 @@
 
         .header-title p {
             font-size: 15px;
-            color: #57606f;
+            color: #4a6572;
             margin-top: 6px;
         }
 
@@ -85,11 +87,11 @@
             background: #fff;
             border-radius: 20px;
             padding: 12px;
-            box-shadow: 0 8px 18px rgba(0,0,0,0.06);
+            box-shadow: 0 8px 18px rgba(9, 132, 227, 0.08);
             text-align: center;
             cursor: pointer;
             transition: transform 0.2s, box-shadow 0.2s;
-            border: 2px solid #ffccd5;
+            border: 2px solid var(--card-border);
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -133,10 +135,14 @@
 
         .footer-hint {
             font-size: 13px;
-            color: #ff4757;
+            color: var(--accent);
             font-weight: 600;
             margin-bottom: 10px;
             text-align: center;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 6px 16px;
+            border-radius: 20px;
+            border: 1px solid var(--card-border);
         }
 
         /* Modal สำหรับขูดรูป */
@@ -168,6 +174,7 @@
             justify-content: space-between;
             align-items: center;
             box-sizing: border-box;
+            border: 2px solid var(--primary);
         }
 
         .modal-header {
@@ -217,7 +224,7 @@
             font-size: 26px;
             font-weight: bold;
             color: #ffffff;
-            background: #ff4757;
+            background: var(--accent);
             width: 40px;
             height: 40px;
             border-radius: 50%;
@@ -225,7 +232,7 @@
             justify-content: center;
             align-items: center;
             cursor: pointer;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 4px 10px rgba(9, 132, 227, 0.4);
             border: 2px solid #ffffff;
             z-index: 10;
         }
@@ -257,12 +264,12 @@
             font-size: 19px;
             font-weight: 700;
             margin: 8px 0 12px 0;
-            background: #fff0f3;
+            background: #e1f0ff;
             padding: 10px 18px;
             border-radius: 30px;
             display: inline-block;
-            box-shadow: 0 4px 12px rgba(255, 107, 129, 0.15);
-            border: 1.5px solid #ffccd5;
+            box-shadow: 0 4px 12px rgba(9, 132, 227, 0.15);
+            border: 1.5px solid var(--card-border);
             letter-spacing: 0.3px;
             animation: bounceBounce 1.2s infinite ease-in-out;
         }
@@ -283,7 +290,7 @@
         }
 
         .next-btn {
-            background: var(--accent);
+            background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
             color: #fff;
             border: none;
             padding: 12px 20px;
@@ -291,13 +298,13 @@
             font-size: 15px;
             font-weight: 600;
             cursor: pointer;
-            box-shadow: 0 4px 12px rgba(255, 71, 87, 0.4);
+            box-shadow: 0 4px 12px rgba(9, 132, 227, 0.35);
             width: 100%;
-            transition: background 0.2s;
+            transition: background 0.2s, transform 0.2s;
         }
 
         .next-btn:active {
-            background: #ff6b81;
+            transform: scale(0.98);
         }
 
         /* ----- หน้า 2: หน้าอวยพรวันแม่ (โชว์ photo5.png เต็มหน้าจอ) ----- */
@@ -440,7 +447,7 @@
 
     function initCanvas() {
         ctx.globalCompositeOperation = 'source-over';
-        ctx.fillStyle = '#dcdde1';
+        ctx.fillStyle = '#b0c4de';
         ctx.fillRect(0, 0, canvas.width, canvas.height);
 
         let fontSize = Math.max(18, Math.floor(canvas.width * 0.065));
